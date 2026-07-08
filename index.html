@@ -788,278 +788,361 @@
         /* ============================================================
            PRINCIPLES DATA
            ============================================================ */
-        const principlesData = [{
-            topic: "Contract Law",
-            entries: [{
-                maxim: "Consensus ad idem",
-                en: "Meeting of the minds",
-                text: "A binding contract requires the parties to be in genuine agreement on the same terms, in the same sense, at the same time.",
-                citation: "Raffles v Wichelhaus (1864)"
-            }, {
-                maxim: "Ex nudo pacto non oritur actio",
-                en: "No action arises from a bare promise",
-                text: "A promise unsupported by consideration is not enforceable as a contract.",
-                citation: "Currie v Misa (1875)"
-            }, {
-                maxim: "Privity of contract",
-                en: "Only parties to a contract can sue on it",
-                text: "A person who is not a party to a contract cannot enforce its terms, even if it was made for their benefit — subject to modern statutory exceptions.",
-                citation: "Tweddle v Atkinson (1861)"
-            }, {
-                maxim: "Caveat emptor",
-                en: "Let the buyer beware",
-                text: "In the absence of fraud, misrepresentation, or an express term, a buyer takes on the risk of quality or condition of what they purchase.",
-                citation: "Ward v Hobbs (1878)"
-            }, {
-                maxim: "Freedom to contract",
-                en: "Parties choose their own bargain",
-                text: "Courts will not rewrite a freely negotiated bargain merely because it later proves unfavourable to one side.",
-                citation: "Printing and Numerical Registering Co v Sampson (1875)"
-            }]
-        }, {
-            topic: "Law of Tort",
-            entries: [{
-                maxim: "Ubi jus ibi remedium",
-                en: "Where there is a right, there is a remedy",
-                text: "Every legal right carries with it a corresponding remedy when that right is violated.",
-                citation: "Ashby v White (1703)"
-            }, {
-                maxim: "Neighbour principle",
-                en: "Duty of care to those closely affected",
-                text: "A person must take reasonable care to avoid acts or omissions which they can reasonably foresee would injure their 'neighbour' — anyone closely and directly affected by their conduct.",
-                citation: "Donoghue v Stevenson (1932)"
-            }, {
-                maxim: "Res ipsa loquitur",
-                en: "The thing speaks for itself",
-                text: "Where an accident is of a kind that ordinarily does not happen without negligence, and the thing causing it was under the defendant's control, negligence may be inferred without direct proof.",
-                citation: "Scott v London & St Katherine Docks Co (1865)"
-            }, {
-                maxim: "Volenti non fit injuria",
-                en: "No injury is done to one who consents",
-                text: "A person who knowingly and voluntarily assumes a risk cannot later sue for harm arising from that risk.",
-                citation: "Smith v Baker & Sons (1891)"
-            }, {
-                maxim: "Novus actus interveniens",
-                en: "A new intervening act",
-                text: "An independent event occurring after the defendant's wrongful act may break the chain of causation and relieve them of liability for later harm.",
-                citation: "The Oropesa (1943)"
-            }]
-        }, {
-            topic: "Criminal Law",
-            entries: [{
-                maxim: "Actus non facit reum nisi mens sit rea",
-                en: "An act does not make one guilty unless the mind is also guilty",
-                text: "Criminal liability generally requires both a guilty act (actus reus) and a guilty mind (mens rea) occurring together.",
-                citation: "Fowler v Padget (1798)"
-            }, {
-                maxim: "Presumption of innocence",
-                en: "Innocent until proven guilty",
-                text: "An accused person is presumed innocent until the prosecution proves guilt beyond reasonable doubt.",
-                citation: "Woolmington v DPP (1935)"
-            }, {
-                maxim: "Nulla poena sine lege",
-                en: "No penalty without a law",
-                text: "A person cannot be punished for an act that was not a crime under the law at the time it was committed.",
-                citation: "Constitutional prohibition on retrospective criminal law"
-            }, {
-                maxim: "Actus reus must be voluntary",
-                en: "Involuntary acts do not attract liability",
-                text: "An act done in a state of automatism, or otherwise beyond the accused's control, generally cannot found criminal responsibility.",
-                citation: "Bratty v Attorney-General for Northern Ireland (1963)"
-            }, {
-                maxim: "Contemporaneity rule",
-                en: "Act and intent must coincide",
-                text: "The guilty act and guilty mind must generally exist at the same point in time for liability to attach, though courts sometimes treat a continuing act as satisfying this.",
-                citation: "Fagan v Metropolitan Police Commissioner (1969)"
-            }]
-        }, {
-            topic: "Constitutional Law",
-            entries: [{
-                maxim: "Constitutional supremacy",
-                en: "The Constitution is the supreme law",
-                text: "Any law or custom inconsistent with the Constitution is void to the extent of the inconsistency.",
-                citation: "Constitution of the Republic of Uganda, 1995, Art. 2"
-            }, {
-                maxim: "Separation of powers",
-                en: "Government power is divided and checked",
-                text: "Legislative, executive, and judicial power are vested in distinct organs so that no single branch of government may dominate the others."
-            }, {
-                maxim: "Rule of law",
-                en: "Government is bound by law, not discretion",
-                text: "All persons, institutions, and government itself are accountable to laws that are publicly promulgated, equally enforced, and independently adjudicated."
-            }, {
-                maxim: "Ultra vires",
-                en: "Beyond one's powers",
-                text: "An act done by a public authority outside the powers conferred on it by law is invalid and may be struck down by the courts.",
-                citation: "Attorney-General v Fulham Corporation (1921)"
-            }, {
-                maxim: "Audi alteram partem",
-                en: "Hear the other side",
-                text: "No person should be condemned, punished, or deprived of a right without first being given a fair opportunity to be heard.",
-                citation: "Ridge v Baldwin (1964)"
-            }]
-        }, {
-            topic: "Law of Evidence",
-            entries: [{
-                maxim: "He who alleges must prove",
-                en: "Burden lies on the party asserting a fact",
-                text: "The party who asserts the affirmative of an issue generally bears the burden of proving it.",
-                citation: "Evidence Act, s. 101 (analogous provisions)"
-            }, {
-                maxim: "Best evidence rule",
-                en: "Primary evidence is preferred",
-                text: "A document must ordinarily be proved by primary (original) evidence rather than secondary evidence, save in recognised exceptions."
-            }, {
-                maxim: "Res gestae",
-                en: "Things done",
-                text: "Statements or acts so closely connected in time and circumstance to the event in issue that they form part of the same transaction may be admitted despite the hearsay rule.",
-                citation: "R v Andrews (1987)"
-            }, {
-                maxim: "Corroboration in sexual offences",
-                en: "Caution before conviction on uncorroborated testimony",
-                text: "Courts traditionally warn themselves of the danger of convicting on the uncorroborated evidence of a complainant in sexual offence cases, though this is now a matter of practice rather than strict law in many jurisdictions."
-            }, {
-                maxim: "Presumption of regularity",
-                en: "Official acts are presumed properly done",
-                text: "Judicial and official acts are presumed to have been done correctly and in accordance with the law unless proven otherwise."
-            }]
-        }, {
-            topic: "Civil Procedure",
-            entries: [{
-                maxim: "Res judicata",
-                en: "A matter already judged",
-                text: "A matter that has been finally decided by a competent court between the same parties cannot be raised again in fresh litigation.",
-                citation: "Civil Procedure Act, s. 7"
-            }, {
-                maxim: "Audi alteram partem in civil suits",
-                en: "Both sides must be heard",
-                text: "No judgment may be given against a party who has not been given a fair opportunity to present their case."
-            }, {
-                maxim: "He who comes to equity must come with clean hands",
-                en: "Equitable relief requires good conduct",
-                text: "A party seeking an equitable remedy must not themselves be guilty of unfair or improper conduct in relation to the matter."
-            }, {
-                maxim: "Locus standi",
-                en: "Standing to sue",
-                text: "A person must have a sufficient legal interest in a matter before the courts will entertain their claim."
-            }]
-        }, {
-            topic: "Criminal Procedure",
-            entries: [{
-                maxim: "Nemo debet bis vexari",
-                en: "No one should be troubled twice",
-                text: "A person acquitted or convicted of an offence should not be tried again for substantially the same offence (autrefois acquit/convict).",
-                citation: "Constitution of Uganda, Art. 28(9)"
-            }, {
-                maxim: "Right to legal representation",
-                en: "Fair hearing includes the right to counsel",
-                text: "An accused person facing a capital or serious charge is entitled to legal representation, at state expense where they cannot afford it."
-            }, {
-                maxim: "Bail is a right, not a favour",
-                en: "Presumption in favour of liberty pending trial",
-                text: "An accused person is presumptively entitled to bail pending trial, subject to conditions safeguarding the interests of justice."
-            }, {
-                maxim: "Speedy trial",
-                en: "Justice delayed is justice denied",
-                text: "An accused is entitled to be tried within a reasonable time, failing which continued detention may itself become unlawful."
-            }]
-        }, {
-            topic: "Land Law",
-            entries: [{
-                maxim: "Nemo dat quod non habet",
-                en: "No one gives what they do not have",
-                text: "A person cannot transfer a better title to property than they themselves possess.",
-                citation: "Registration of Titles Act (Uganda)"
-            }, {
-                maxim: "Bona fide purchaser for value without notice",
-                en: "Innocent buyers are protected",
-                text: "A person who purchases legal title for value, honestly and without notice of a competing interest, takes free of that unregistered interest."
-            }, {
-                maxim: "Doctrine of notice",
-                en: "Actual, constructive, or imputed knowledge binds",
-                text: "A purchaser who has actual, constructive, or imputed notice of a prior equitable interest takes the land subject to it."
-            }, {
-                maxim: "Indefeasibility of title",
-                en: "Registration cures defects",
-                text: "Under a Torrens-style registration system, a registered proprietor's title is generally protected against unregistered claims, save recognised exceptions such as fraud.",
-                citation: "Kampala Bottlers Ltd v Damanico (U) Ltd (1997)"
-            }]
-        }, {
-            topic: "Equity & Trusts",
-            entries: [{
-                maxim: "Equity follows the law",
-                en: "Equity supplements, not overrides, the law",
-                text: "Equitable rules operate alongside common law rules and do not contradict them where the law is clear."
-            }, {
-                maxim: "Equity will not suffer a wrong without a remedy",
-                en: "Every wrong deserves a remedy",
-                text: "Where the common law provides no adequate remedy, equity will intervene to prevent injustice."
-            }, {
-                maxim: "Delay defeats equity",
-                en: "Equitable relief requires promptness",
-                text: "A party who unreasonably delays in asserting an equitable right may be barred from relief by the doctrine of laches."
-            }, {
-                maxim: "Equity looks to intent, not form",
-                en: "Substance over form",
-                text: "Equity examines what the parties actually intended, rather than being bound strictly by the form of a transaction."
-            }]
-        }, {
-            topic: "Company Law",
-            entries: [{
-                maxim: "Separate legal personality",
-                en: "A company is distinct from its members",
-                text: "Upon incorporation, a company becomes a legal person separate from its shareholders and directors, capable of owning property and suing or being sued in its own name.",
-                citation: "Salomon v Salomon & Co Ltd (1897)"
-            }, {
-                maxim: "Corporate veil",
-                en: "Members are shielded from company liabilities",
-                text: "Shareholders are generally not personally liable for the debts and obligations of the company beyond their investment, save where the veil is lifted for fraud or improper conduct."
-            }, {
-                maxim: "Ultra vires (corporate)",
-                en: "Beyond the company's objects",
-                text: "An act by a company outside the objects stated in its constitutive documents was traditionally void, though modern company statutes have significantly narrowed this doctrine."
-            }, {
-                maxim: "Majority rule / proper plaintiff rule",
-                en: "The company is the proper claimant for wrongs against it",
-                text: "Where a wrong is done to a company, the company itself — not an individual shareholder — is generally the proper party to bring a claim.",
-                citation: "Foss v Harbottle (1843)"
-            }]
-        }, {
-            topic: "Family Law",
-            entries: [{
-                maxim: "Best interests of the child",
-                en: "The child's welfare is paramount",
-                text: "In any matter concerning a child, the child's best interests are the primary consideration guiding the court's decision.",
-                citation: "Children Act (Uganda), s. 3"
-            }, {
-                maxim: "Presumption of marriage",
-                en: "Long cohabitation raises a presumption",
-                text: "Where a man and woman have cohabited for a long period and held themselves out as married, the law presumes a valid marriage in the absence of evidence to the contrary."
-            }, {
-                maxim: "Equality of spouses",
-                en: "Marital property is shared on just principles",
-                text: "On dissolution of marriage, matrimonial property is generally divided having regard to each spouse's contribution, direct or indirect, rather than title alone."
-            }]
-        }, {
-            topic: "Human Rights Law",
-            entries: [{
-                maxim: "Universality of rights",
-                en: "Rights belong to all persons equally",
-                text: "Fundamental human rights are inherent in every person by virtue of their humanity, and are not privileges granted by the state."
-            }, {
-                maxim: "Non-derogable rights",
-                en: "Some rights admit no exception",
-                text: "Certain rights — such as the right to life and freedom from torture — cannot be suspended even during a state of emergency.",
-                citation: "Constitution of Uganda, Art. 44"
-            }, {
-                maxim: "Proportionality",
-                en: "Limitations must go no further than necessary",
-                text: "Any limitation on a fundamental right must be reasonable, justifiable in a free and democratic society, and no more restrictive than necessary to achieve its legitimate aim."
-            }]
-        }, {
-            topic: "Additional Principles",
-            entries: []
-        }];
+        const principlesData = [
+  {
+    topic: "Contract Law",
+    entries: [
+      {
+        maxim: "Consensus ad idem",
+        en: "Meeting of the minds",
+        text: "A binding contract requires the parties to be in genuine agreement on the same terms, in the same sense, at the same time.",
+        citation: "Raffles v Wichelhaus (1864)"
+      },
+      {
+        maxim: "Ex nudo pacto non oritur actio",
+        en: "No action arises from a bare promise",
+        text: "A promise unsupported by consideration is not enforceable as a contract.",
+        citation: "Currie v Misa (1875)"
+      },
+      {
+        maxim: "Privity of contract",
+        en: "Only parties to a contract can sue on it",
+        text: "A person who is not a party to a contract cannot enforce its terms, even if it was made for their benefit — subject to modern statutory exceptions.",
+        citation: "Tweddle v Atkinson (1861)"
+      },
+      {
+        maxim: "Caveat emptor",
+        en: "Let the buyer beware",
+        text: "In the absence of fraud, misrepresentation, or an express term, a buyer takes on the risk of quality or condition of what they purchase.",
+        citation: "Ward v Hobbs (1878)"
+      },
+      {
+        maxim: "Freedom to contract",
+        en: "Parties choose their own bargain",
+        text: "Courts will not rewrite a freely negotiated bargain merely because it later proves unfavourable to one side.",
+        citation: "Printing and Numerical Registering Co v Sampson (1875)"
+      }
+    ]
+  },
+  {
+    topic: "Law of Tort",
+    entries: [
+      {
+        maxim: "Ubi jus ibi remedium",
+        en: "Where there is a right, there is a remedy",
+        text: "Every legal right carries with it a corresponding remedy when that right is violated.",
+        citation: "Ashby v White (1703)"
+      },
+      {
+        maxim: "Neighbour principle",
+        en: "Duty of care to those closely affected",
+        text: "A person must take reasonable care to avoid acts or omissions which they can reasonably foresee would injure their 'neighbour' — anyone closely and directly affected by their conduct.",
+        citation: "Donoghue v Stevenson (1932)"
+      },
+      {
+        maxim: "Res ipsa loquitur",
+        en: "The thing speaks for itself",
+        text: "Where an accident is of a kind that ordinarily does not happen without negligence, and the thing causing it was under the defendant's control, negligence may be inferred without direct proof.",
+        citation: "Scott v London & St Katherine Docks Co (1865)"
+      },
+      {
+        maxim: "Volenti non fit injuria",
+        en: "No injury is done to one who consents",
+        text: "A person who knowingly and voluntarily assumes a risk cannot later sue for harm arising from that risk.",
+        citation: "Smith v Baker & Sons (1891)"
+      },
+      {
+        maxim: "Novus actus interveniens",
+        en: "A new intervening act",
+        text: "An independent event occurring after the defendant's wrongful act may break the chain of causation and relieve them of liability for later harm.",
+        citation: "The Oropesa (1943)"
+      }
+    ]
+  },
+  {
+    topic: "Criminal Law",
+    entries: [
+      {
+        maxim: "Actus non facit reum nisi mens sit rea",
+        en: "An act does not make one guilty unless the mind is also guilty",
+        text: "Criminal liability generally requires both a guilty act (actus reus) and a guilty mind (mens rea) occurring together.",
+        citation: "Fowler v Padget (1798)"
+      },
+      {
+        maxim: "Presumption of innocence",
+        en: "Innocent until proven guilty",
+        text: "An accused person is presumed innocent until the prosecution proves guilt beyond reasonable doubt.",
+        citation: "Woolmington v DPP (1935)"
+      },
+      {
+        maxim: "Nulla poena sine lege",
+        en: "No penalty without a law",
+        text: "A person cannot be punished for an act that was not a crime under the law at the time it was committed.",
+        citation: "Constitutional prohibition on retrospective criminal law"
+      },
+      {
+        maxim: "Actus reus must be voluntary",
+        en: "Involuntary acts do not attract liability",
+        text: "An act done in a state of automatism, or otherwise beyond the accused's control, generally cannot found criminal responsibility.",
+        citation: "Bratty v Attorney-General for Northern Ireland (1963)"
+      },
+      {
+        maxim: "Contemporaneity rule",
+        en: "Act and intent must coincide",
+        text: "The guilty act and guilty mind must generally exist at the same point in time for liability to attach, though courts sometimes treat a continuing act as satisfying this.",
+        citation: "Fagan v Metropolitan Police Commissioner (1969)"
+      }
+    ]
+  },
+  {
+    topic: "Constitutional Law",
+    entries: [
+      {
+        maxim: "Constitutional supremacy",
+        en: "The Constitution is the supreme law",
+        text: "Any law or custom inconsistent with the Constitution is void to the extent of the inconsistency.",
+        citation: "Constitution of the Republic of Uganda, 1995, Art. 2"
+      },
+      {
+        maxim: "Separation of powers",
+        en: "Government power is divided and checked",
+        text: "Legislative, executive, and judicial power are vested in distinct organs so that no single branch of government may dominate the others."
+      },
+      {
+        maxim: "Rule of law",
+        en: "Government is bound by law, not discretion",
+        text: "All persons, institutions, and government itself are accountable to laws that are publicly promulgated, equally enforced, and independently adjudicated."
+      },
+      {
+        maxim: "Ultra vires",
+        en: "Beyond one's powers",
+        text: "An act done by a public authority outside the powers conferred on it by law is invalid and may be struck down by the courts.",
+        citation: "Attorney-General v Fulham Corporation (1921)"
+      },
+      {
+        maxim: "Audi alteram partem",
+        en: "Hear the other side",
+        text: "No person should be condemned, punished, or deprived of a right without first being given a fair opportunity to be heard.",
+        citation: "Ridge v Baldwin (1964)"
+      }
+    ]
+  },
+  {
+    topic: "Law of Evidence",
+    entries: [
+      {
+        maxim: "He who alleges must prove",
+        en: "Burden lies on the party asserting a fact",
+        text: "The party who asserts the affirmative of an issue generally bears the burden of proving it.",
+        citation: "Evidence Act, s. 101 (analogous provisions)"
+      },
+      {
+        maxim: "Best evidence rule",
+        en: "Primary evidence is preferred",
+        text: "A document must ordinarily be proved by primary (original) evidence rather than secondary evidence, save in recognised exceptions."
+      },
+      {
+        maxim: "Res gestae",
+        en: "Things done",
+        text: "Statements or acts so closely connected in time and circumstance to the event in issue that they form part of the same transaction may be admitted despite the hearsay rule.",
+        citation: "R v Andrews (1987)"
+      },
+      {
+        maxim: "Corroboration in sexual offences",
+        en: "Caution before conviction on uncorroborated testimony",
+        text: "Courts traditionally warn themselves of the danger of convicting on the uncorroborated evidence of a complainant in sexual offence cases, though this is now a matter of practice rather than strict law in many jurisdictions."
+      },
+      {
+        maxim: "Presumption of regularity",
+        en: "Official acts are presumed properly done",
+        text: "Judicial and official acts are presumed to have been done correctly and in accordance with the law unless proven otherwise."
+      }
+    ]
+  },
+  {
+    topic: "Civil Procedure",
+    entries: [
+      {
+        maxim: "Res judicata",
+        en: "A matter already judged",
+        text: "A matter that has been finally decided by a competent court between the same parties cannot be raised again in fresh litigation.",
+        citation: "Civil Procedure Act, s. 7"
+      },
+      {
+        maxim: "Audi alteram partem in civil suits",
+        en: "Both sides must be heard",
+        text: "No judgment may be given against a party who has not been given a fair opportunity to present their case."
+      },
+      {
+        maxim: "He who comes to equity must come with clean hands",
+        en: "Equitable relief requires good conduct",
+        text: "A party seeking an equitable remedy must not themselves be guilty of unfair or improper conduct in relation to the matter."
+      },
+      {
+        maxim: "Locus standi",
+        en: "Standing to sue",
+        text: "A person must have a sufficient legal interest in a matter before the courts will entertain their claim."
+      }
+    ]
+  },
+  {
+    topic: "Criminal Procedure",
+    entries: [
+      {
+        maxim: "Nemo debet bis vexari",
+        en: "No one should be troubled twice",
+        text: "A person acquitted or convicted of an offence should not be tried again for substantially the same offence (autrefois acquit/convict).",
+        citation: "Constitution of Uganda, Art. 28(9)"
+      },
+      {
+        maxim: "Right to legal representation",
+        en: "Fair hearing includes the right to counsel",
+        text: "An accused person facing a capital or serious charge is entitled to legal representation, at state expense where they cannot afford it."
+      },
+      {
+        maxim: "Bail is a right, not a favour",
+        en: "Presumption in favour of liberty pending trial",
+        text: "An accused person is presumptively entitled to bail pending trial, subject to conditions safeguarding the interests of justice."
+      },
+      {
+        maxim: "Speedy trial",
+        en: "Justice delayed is justice denied",
+        text: "An accused is entitled to be tried within a reasonable time, failing which continued detention may itself become unlawful."
+      }
+    ]
+  },
+  {
+    topic: "Land Law",
+    entries: [
+      {
+        maxim: "Nemo dat quod non habet",
+        en: "No one gives what they do not have",
+        text: "A person cannot transfer a better title to property than they themselves possess.",
+        citation: "Registration of Titles Act (Uganda)"
+      },
+      {
+        maxim: "Bona fide purchaser for value without notice",
+        en: "Innocent buyers are protected",
+        text: "A person who purchases legal title for value, honestly and without notice of a competing interest, takes free of that unregistered interest."
+      },
+      {
+        maxim: "Doctrine of notice",
+        en: "Actual, constructive, or imputed knowledge binds",
+        text: "A purchaser who has actual, constructive, or imputed notice of a prior equitable interest takes the land subject to it."
+      },
+      {
+        maxim: "Indefeasibility of title",
+        en: "Registration cures defects",
+        text: "Under a Torrens-style registration system, a registered proprietor's title is generally protected against unregistered claims, save recognised exceptions such as fraud.",
+        citation: "Kampala Bottlers Ltd v Damanico (U) Ltd (1997)"
+      },
+      {
+        maxim: "Spousal consent is mandatory for mortgaging matrimonial property",
+        en: "Spousal Consent In Matrimonial Property",
+        text: "Under the Land Act and Mortgage Act, no matrimonial home can be mortgaged without the free, informed, written consent of the spouse. In Kanyima v Mercantile Credit Bank, the bank was found liable for failing to verify the identity of the person purporting to be a co-owner's spouse",
+        citation: ""
+      }
+    ]
+  },
+  {
+    topic: "Equity & Trusts",
+    entries: [
+      {
+        maxim: "Equity follows the law",
+        en: "Equity supplements, not overrides, the law",
+        text: "Equitable rules operate alongside common law rules and do not contradict them where the law is clear."
+      },
+      {
+        maxim: "Equity will not suffer a wrong without a remedy",
+        en: "Every wrong deserves a remedy",
+        text: "Where the common law provides no adequate remedy, equity will intervene to prevent injustice."
+      },
+      {
+        maxim: "Delay defeats equity",
+        en: "Equitable relief requires promptness",
+        text: "A party who unreasonably delays in asserting an equitable right may be barred from relief by the doctrine of laches."
+      },
+      {
+        maxim: "Equity looks to intent, not form",
+        en: "Substance over form",
+        text: "Equity examines what the parties actually intended, rather than being bound strictly by the form of a transaction."
+      }
+    ]
+  },
+  {
+    topic: "Company Law",
+    entries: [
+      {
+        maxim: "Separate legal personality",
+        en: "A company is distinct from its members",
+        text: "Upon incorporation, a company becomes a legal person separate from its shareholders and directors, capable of owning property and suing or being sued in its own name.",
+        citation: "Salomon v Salomon & Co Ltd (1897)"
+      },
+      {
+        maxim: "Corporate veil",
+        en: "Members are shielded from company liabilities",
+        text: "Shareholders are generally not personally liable for the debts and obligations of the company beyond their investment, save where the veil is lifted for fraud or improper conduct."
+      },
+      {
+        maxim: "Ultra vires (corporate)",
+        en: "Beyond the company's objects",
+        text: "An act by a company outside the objects stated in its constitutive documents was traditionally void, though modern company statutes have significantly narrowed this doctrine."
+      },
+      {
+        maxim: "Majority rule / proper plaintiff rule",
+        en: "The company is the proper claimant for wrongs against it",
+        text: "Where a wrong is done to a company, the company itself — not an individual shareholder — is generally the proper party to bring a claim.",
+        citation: "Foss v Harbottle (1843)"
+      }
+    ]
+  },
+  {
+    topic: "Family Law",
+    entries: [
+      {
+        maxim: "Best interests of the child",
+        en: "The child's welfare is paramount",
+        text: "In any matter concerning a child, the child's best interests are the primary consideration guiding the court's decision.",
+        citation: "Children Act (Uganda), s. 3"
+      },
+      {
+        maxim: "Presumption of marriage",
+        en: "Long cohabitation raises a presumption",
+        text: "Where a man and woman have cohabited for a long period and held themselves out as married, the law presumes a valid marriage in the absence of evidence to the contrary."
+      },
+      {
+        maxim: "Equality of spouses",
+        en: "Marital property is shared on just principles",
+        text: "On dissolution of marriage, matrimonial property is generally divided having regard to each spouse's contribution, direct or indirect, rather than title alone."
+      }
+    ]
+  },
+  {
+    topic: "Human Rights Law",
+    entries: [
+      {
+        maxim: "Universality of rights",
+        en: "Rights belong to all persons equally",
+        text: "Fundamental human rights are inherent in every person by virtue of their humanity, and are not privileges granted by the state."
+      },
+      {
+        maxim: "Non-derogable rights",
+        en: "Some rights admit no exception",
+        text: "Certain rights — such as the right to life and freedom from torture — cannot be suspended even during a state of emergency.",
+        citation: "Constitution of Uganda, Art. 44"
+      },
+      {
+        maxim: "Proportionality",
+        en: "Limitations must go no further than necessary",
+        text: "Any limitation on a fundamental right must be reasonable, justifiable in a free and democratic society, and no more restrictive than necessary to achieve its legitimate aim."
+      }
+    ]
+  },
+  {
+    topic: "Additional Principles",
+    entries: []
+  }
+];
 
         /* ============================================================
            RENDER LOGIC
