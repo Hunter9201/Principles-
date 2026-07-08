@@ -1,791 +1,1044 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Principles of Law — The Lion Hunter</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-  :root {
-    --law-navy: #112d4e;
-    --law-blue: #3f72af;
-    --law-gold: #caa75c;
-    --law-cream: #f8f4ee;
-    --law-beige: #e8e2d0;
-    --law-dark: #2c2c2c;
-    --law-white: #ffffff;
-    --law-border: #ccc;
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Principles of Law — Arthur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ===== RESET & VARIABLES ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    --bg: var(--law-cream);
-    --bg-panel: var(--law-beige);
-    --bg-card: var(--law-white);
-    --gold: var(--law-gold);
-    --gold-bright: var(--law-gold);
-    --cream: var(--law-cream);
-    --sage: var(--law-dark);
-    --sage-dim: #555;
-    --rust: var(--law-blue);
-    --line: var(--law-border);
+        :root {
+            --law-navy: #112d4e;
+            --law-blue: #3f72af;
+            --law-gold: #caa75c;
+            --law-cream: #f8f4ee;
+            --law-beige: #e8e2d0;
+            --law-dark: #2c2c2c;
+            --law-white: #ffffff;
+            --law-border: #ccc;
 
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Inter', -apple-system, Segoe UI, sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
-  }
+            --bg: var(--law-cream);
+            --bg-panel: var(--law-beige);
+            --bg-card: var(--law-white);
+            --gold: var(--law-gold);
+            --sage: var(--law-dark);
+            --sage-dim: #555;
+            --line: var(--law-border);
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', -apple-system, Segoe UI, sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
 
-  html {
-    font-size: 16px;
-    -webkit-text-size-adjust: 100%;
-  }
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
 
-  body {
-    background: var(--law-cream);
-    color: var(--law-dark);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    min-height: 100vh;
-    position: relative;
-    padding: 0;
-    margin: 0;
-  }
+        body {
+            background: var(--law-cream);
+            color: var(--law-dark);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
 
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      transparent, transparent 38px, rgba(202, 167, 92, 0.06) 39px, transparent 40px
-    );
-    pointer-events: none;
-    z-index: 0;
-  }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: repeating-linear-gradient(transparent,
+                    transparent 38px,
+                    rgba(202, 167, 92, 0.06) 39px,
+                    transparent 40px);
+            pointer-events: none;
+            z-index: 0;
+        }
 
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative;
-    z-index: 2;
-    padding: 3rem 1.5rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .hero .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--law-blue);
-    margin-bottom: 1rem;
-    display: block;
-  }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.6rem, 8vw, 4.5rem);
-    font-weight: 600;
-    color: var(--law-navy);
-    line-height: 1.02;
-    letter-spacing: -0.01em;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--law-gold);
-    font-weight: 500;
-  }
-  .hero p {
-    margin-top: 1.2rem;
-    font-size: 1rem;
-    color: var(--sage);
-    max-width: 60ch;
-  }
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            z-index: 2;
+            padding: 2.5rem 1.5rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-  /* ---------- Controls ---------- */
-  .controls {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    padding: 0.8rem 1.5rem;
-    background: rgba(248, 244, 238, 0.94);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--line);
-    border-top: 1px solid var(--line);
-  }
-  .search-row {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: nowrap;
-  }
-  .search-row input {
-    flex: 1 1 auto;
-    min-width: 0;
-    background: var(--bg-panel);
-    border: 1px solid var(--line);
-    color: var(--law-navy);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    padding: 0.75rem 1rem;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color .2s;
-    height: 48px;
-  }
-  .search-row input:focus {
-    border-color: var(--law-gold);
-  }
-  .search-row input::placeholder {
-    color: var(--sage-dim);
-  }
-  .count-badge {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--sage);
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding-left: 0.5rem;
-  }
+        /* --- Profile Card (clickable) --- */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1rem 1.5rem 1rem 1rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+            flex-wrap: wrap;
+            cursor: pointer;
+        }
 
-  /* ---------- Main ---------- */
-  main {
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-  }
+        .profile-card:hover {
+            border-color: var(--law-gold);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
 
-  .topic-group {
-    margin-bottom: 3.5rem;
-  }
-  .topic-group.hidden {
-    display: none;
-  }
+        .profile-avatar {
+            flex-shrink: 0;
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--law-gold);
+            box-shadow: 0 0 0 1px rgba(202, 167, 92, 0.25);
+            background: var(--law-beige);
+            transition: transform 0.25s ease;
+        }
 
-  .topic-heading {
-    display: flex;
-    align-items: baseline;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--line);
-    flex-wrap: wrap;
-  }
-  .topic-heading h2 {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--law-navy);
-    line-height: 1.2;
-  }
-  .topic-heading .tally {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--sage-dim);
-    background: var(--bg-panel);
-    padding: 0.1rem 0.6rem;
-    border-radius: 20px;
-  }
+        .profile-card:hover .profile-avatar {
+            transform: scale(1.02);
+        }
 
-  .principle-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-  }
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-  .principle-card {
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 1.5rem;
-    position: relative;
-    transition: border-color .2s, transform .2s, box-shadow .2s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
-  }
-  .principle-card:hover {
-    border-color: var(--law-gold);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
-  }
-  @media (hover: none) {
-    .principle-card:hover {
-      transform: none;
-    }
-  }
-  .principle-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--law-blue);
-    border-radius: 12px 0 0 12px;
-  }
-  .maxim {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.2rem;
-    color: var(--law-navy);
-    font-weight: 500;
-    line-height: 1.3;
-    margin-bottom: 0.25rem;
-    word-wrap: break-word;
-  }
-  .maxim-en {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 0.8rem;
-  }
-  .explanation {
-    font-size: 0.95rem;
-    color: var(--sage);
-    margin-bottom: 1rem;
-    flex: 1;
-  }
-  .citation {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--law-gold);
-    padding-top: 0.6rem;
-    border-top: 1px dashed var(--line);
-    margin-top: auto;
-  }
-  .citation::before {
-    content: "⚖ ";
-  }
+        .profile-info {
+            flex: 1;
+            min-width: 180px;
+        }
 
-  .empty-state {
-    text-align: center;
-    padding: 4rem 1.5rem;
-    color: var(--sage);
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-style: italic;
-  }
+        .profile-name {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--law-navy);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
 
-  footer {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 1.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.6);
-    background-color: var(--law-navy);
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
+        .profile-title {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--law-blue);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-top: 0.1rem;
+        }
 
-  /* ---------- Responsive Fine-Tuning ---------- */
-  @media (max-width: 768px) {
-    .hero {
-      padding: 2rem 1.2rem 1.5rem;
-    }
-    .controls {
-      padding: 0.6rem 1.2rem;
-    }
-    main {
-      padding: 1.5rem 1.2rem 3rem;
-    }
-    .principle-grid {
-      grid-template-columns: 1fr;
-      gap: 0.8rem;
-    }
-    .topic-heading h2 {
-      font-size: 1.4rem;
-    }
-    .search-row {
-      gap: 0.5rem;
-    }
-    .count-badge {
-      font-size: 0.65rem;
-    }
-  }
+        .profile-bio {
+            font-size: 0.9rem;
+            color: var(--sage);
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
 
-  @media (max-width: 480px) {
-    .hero h1 {
-      font-size: 2.2rem;
-    }
-    .hero p {
-      font-size: 0.95rem;
-    }
-    .principle-card {
-      padding: 1.2rem;
-    }
-    .maxim {
-      font-size: 1.1rem;
-    }
-    .search-row input {
-      font-size: 0.85rem;
-      padding: 0.6rem 0.8rem;
-      height: 44px;
-    }
-  }
+        /* removed .click-hint */
 
-  @media (min-width: 1200px) {
-    .principle-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-</style>
+        /* --- Hero Text --- */
+        .hero .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--law-blue);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 7vw, 4.2rem);
+            font-weight: 600;
+            color: var(--law-navy);
+            line-height: 1.02;
+            letter-spacing: -0.01em;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--law-gold);
+            font-weight: 500;
+        }
+
+        .hero .sub {
+            margin-top: 0.8rem;
+            font-size: 1rem;
+            color: var(--sage);
+            max-width: 60ch;
+        }
+
+        /* ===== CONTROLS ===== */
+        .controls {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            padding: 0.8rem 1.5rem;
+            background: rgba(248, 244, 238, 0.94);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--line);
+            border-top: 1px solid var(--line);
+        }
+
+        .search-row {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: nowrap;
+        }
+
+        .search-row input {
+            flex: 1 1 auto;
+            min-width: 0;
+            background: var(--bg-panel);
+            border: 1px solid var(--line);
+            color: var(--law-navy);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.2s;
+            height: 48px;
+        }
+
+        .search-row input:focus {
+            border-color: var(--law-gold);
+        }
+
+        .search-row input::placeholder {
+            color: var(--sage-dim);
+        }
+
+        .count-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--sage);
+            white-space: nowrap;
+            flex-shrink: 0;
+            padding-left: 0.5rem;
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .topic-group {
+            margin-bottom: 3.5rem;
+        }
+        .topic-group.hidden {
+            display: none;
+        }
+
+        .topic-heading {
+            display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid var(--line);
+            flex-wrap: wrap;
+        }
+
+        .topic-heading h2 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--law-navy);
+            line-height: 1.2;
+        }
+
+        .topic-heading .tally {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--sage-dim);
+            background: var(--bg-panel);
+            padding: 0.1rem 0.6rem;
+            border-radius: 20px;
+        }
+
+        .principle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .principle-card {
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .principle-card:hover {
+            border-color: var(--law-gold);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        @media (hover: none) {
+            .principle-card:hover {
+                transform: none;
+            }
+        }
+
+        .principle-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--law-blue);
+            border-radius: 12px 0 0 12px;
+        }
+
+        .maxim {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--law-navy);
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 0.25rem;
+            word-wrap: break-word;
+        }
+
+        .maxim-en {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 0.8rem;
+        }
+
+        .explanation {
+            font-size: 0.95rem;
+            color: var(--sage);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .citation {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--law-gold);
+            padding-top: 0.6rem;
+            border-top: 1px dashed var(--line);
+            margin-top: auto;
+        }
+
+        .citation::before {
+            content: "⚖ ";
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            color: var(--sage);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-style: italic;
+        }
+
+        footer {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            background-color: var(--law-navy);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* ===== MODAL OVERLAY ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s;
+        }
+
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-box {
+            background: var(--law-cream);
+            border-radius: 28px;
+            padding: 2.5rem 2rem 2rem;
+            max-width: 460px;
+            width: 92%;
+            border: 1px solid var(--law-gold);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+            position: relative;
+            text-align: center;
+            transform: scale(0.92);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        /* --- Big, beautiful picture in the modal --- */
+        .modal-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--law-gold);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            margin: 0 auto 1.2rem;
+            background: var(--law-beige);
+            transition: transform 0.4s ease;
+        }
+
+        .modal-overlay.active .modal-avatar {
+            transform: scale(1.02);
+        }
+
+        .modal-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .modal-box h3 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--law-navy);
+            margin-bottom: 0.1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .modal-box .modal-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--law-blue);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-box p {
+            color: var(--sage);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .modal-box .quote-line {
+            display: block;
+            margin-top: 1rem;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--law-gold);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--sage-dim);
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--law-navy);
+            transform: rotate(90deg);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 1.8rem 1.2rem 1.2rem;
+            }
+
+            .profile-card {
+                padding: 0.8rem 1rem 0.8rem 0.8rem;
+                gap: 1rem;
+                border-radius: 14px;
+            }
+
+            .profile-avatar {
+                width: 68px;
+                height: 68px;
+            }
+
+            .profile-name {
+                font-size: 1.5rem;
+            }
+
+            .controls {
+                padding: 0.6rem 1.2rem;
+            }
+
+            main {
+                padding: 1.5rem 1.2rem 3rem;
+            }
+
+            .principle-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .topic-heading h2 {
+                font-size: 1.4rem;
+            }
+
+            .search-row {
+                gap: 0.5rem;
+            }
+
+            .count-badge {
+                font-size: 0.65rem;
+            }
+
+            .modal-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .modal-avatar {
+                width: 130px;
+                height: 130px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .sub {
+                font-size: 0.95rem;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 1.2rem 1rem;
+                gap: 0.6rem;
+            }
+
+            .profile-avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .profile-name {
+                font-size: 1.4rem;
+            }
+
+            .principle-card {
+                padding: 1.2rem;
+            }
+
+            .maxim {
+                font-size: 1.1rem;
+            }
+
+            .search-row input {
+                font-size: 0.85rem;
+                padding: 0.6rem 0.8rem;
+                height: 44px;
+            }
+
+            .modal-avatar {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .principle-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
 
-<section class="hero">
-  <span class="eyebrow"></span>
-  <h1>Principles of <em>Law</em>,<br>hunted down and mounted.</h1>
-  <p></p>
-</section>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
 
-<div class="controls">
-  <div class="search-row">
-    <input type="text" id="searchInput" placeholder="Search a principle, maxim, or case… e.g. 'consideration', 'mens rea'">
-    <span class="count-badge" id="countBadge"></span>
-  </div>
-</div>
+        <!-- PROFILE CARD (entire area is clickable) -->
+        <div class="profile-card" id="profileCard">
+            <div class="profile-avatar">
+                <img src="https://i.postimg.cc/9z65vCdX/Whats-App-Image-2026-07-08-at-19-08-12.jpg"
+                alt="Arthur — Lawyer"
+                loading="lazy" />
+            </div>
+            <div class="profile-info">
+                <div class="profile-name">Arthur</div>
+                <div class="profile-title">Lawyer</div>
+                <div class="profile-bio">Legal mind · Advocate · Clarity seeker</div>
+                <!-- click-hint removed -->
+            </div>
+        </div>
 
-<main id="mainContent"></main>
+        <span class="eyebrow">⚖ &nbsp;Principles of Law</span>
+        <h1>Principles of <em>Law</em>,<br />hunted down and mounted.</h1>
+        <p class="sub">
+            A curated collection of legal maxims, doctrines, and principles —
+            assembled for the relentless pursuit of justice.
+        </p>
+    </section>
 
-<footer>
-  THE LION HUNTER — built for LDC students, designed for pride.
-</footer>
+    <!-- ===== CONTROLS ===== -->
+    <div class="controls">
+        <div class="search-row">
+            <input type="text" id="searchInput"
+            placeholder="Search a principle, maxim, or case… e.g. 'consideration', 'mens rea'" />
+            <span class="count-badge" id="countBadge"></span>
+        </div>
+    </div>
 
-<script>
-/* ============================================================
-   PRINCIPLES DATA
-   To add new principles from the admin portal, simply add new
-   entries to the "Additional Principles" topic below.
-   ============================================================ */
-const principlesData = [
-  {
-    topic: "Contract Law",
-    entries: [
-      {
-        maxim: "Consensus ad idem",
-        en: "Meeting of the minds",
-        text: "A binding contract requires the parties to be in genuine agreement on the same terms, in the same sense, at the same time.",
-        citation: "Raffles v Wichelhaus (1864)"
-      },
-      {
-        maxim: "Ex nudo pacto non oritur actio",
-        en: "No action arises from a bare promise",
-        text: "A promise unsupported by consideration is not enforceable as a contract.",
-        citation: "Currie v Misa (1875)"
-      },
-      {
-        maxim: "Privity of contract",
-        en: "Only parties to a contract can sue on it",
-        text: "A person who is not a party to a contract cannot enforce its terms, even if it was made for their benefit — subject to modern statutory exceptions.",
-        citation: "Tweddle v Atkinson (1861)"
-      },
-      {
-        maxim: "Caveat emptor",
-        en: "Let the buyer beware",
-        text: "In the absence of fraud, misrepresentation, or an express term, a buyer takes on the risk of quality or condition of what they purchase.",
-        citation: "Ward v Hobbs (1878)"
-      },
-      {
-        maxim: "Freedom to contract",
-        en: "Parties choose their own bargain",
-        text: "Courts will not rewrite a freely negotiated bargain merely because it later proves unfavourable to one side.",
-        citation: "Printing and Numerical Registering Co v Sampson (1875)"
-      },
-      {
-        maxim: "rfgthjukrtryui",
-        en: "rtyuiortyuiotyui",
-        text: "rtyuhijo",
-        citation: "rfgyhyujkl;"
-      }
-    ]
-  },
-  {
-    topic: "Law of Tort",
-    entries: [
-      {
-        maxim: "Ubi jus ibi remedium",
-        en: "Where there is a right, there is a remedy",
-        text: "Every legal right carries with it a corresponding remedy when that right is violated.",
-        citation: "Ashby v White (1703)"
-      },
-      {
-        maxim: "Neighbour principle",
-        en: "Duty of care to those closely affected",
-        text: "A person must take reasonable care to avoid acts or omissions which they can reasonably foresee would injure their 'neighbour' — anyone closely and directly affected by their conduct.",
-        citation: "Donoghue v Stevenson (1932)"
-      },
-      {
-        maxim: "Res ipsa loquitur",
-        en: "The thing speaks for itself",
-        text: "Where an accident is of a kind that ordinarily does not happen without negligence, and the thing causing it was under the defendant's control, negligence may be inferred without direct proof.",
-        citation: "Scott v London & St Katherine Docks Co (1865)"
-      },
-      {
-        maxim: "Volenti non fit injuria",
-        en: "No injury is done to one who consents",
-        text: "A person who knowingly and voluntarily assumes a risk cannot later sue for harm arising from that risk.",
-        citation: "Smith v Baker & Sons (1891)"
-      },
-      {
-        maxim: "Novus actus interveniens",
-        en: "A new intervening act",
-        text: "An independent event occurring after the defendant's wrongful act may break the chain of causation and relieve them of liability for later harm.",
-        citation: "The Oropesa (1943)"
-      }
-    ]
-  },
-  {
-    topic: "Criminal Law",
-    entries: [
-      {
-        maxim: "Actus non facit reum nisi mens sit rea",
-        en: "An act does not make one guilty unless the mind is also guilty",
-        text: "Criminal liability generally requires both a guilty act (actus reus) and a guilty mind (mens rea) occurring together.",
-        citation: "Fowler v Padget (1798)"
-      },
-      {
-        maxim: "Presumption of innocence",
-        en: "Innocent until proven guilty",
-        text: "An accused person is presumed innocent until the prosecution proves guilt beyond reasonable doubt.",
-        citation: "Woolmington v DPP (1935)"
-      },
-      {
-        maxim: "Nulla poena sine lege",
-        en: "No penalty without a law",
-        text: "A person cannot be punished for an act that was not a crime under the law at the time it was committed.",
-        citation: "Constitutional prohibition on retrospective criminal law"
-      },
-      {
-        maxim: "Actus reus must be voluntary",
-        en: "Involuntary acts do not attract liability",
-        text: "An act done in a state of automatism, or otherwise beyond the accused's control, generally cannot found criminal responsibility.",
-        citation: "Bratty v Attorney-General for Northern Ireland (1963)"
-      },
-      {
-        maxim: "Contemporaneity rule",
-        en: "Act and intent must coincide",
-        text: "The guilty act and guilty mind must generally exist at the same point in time for liability to attach, though courts sometimes treat a continuing act as satisfying this.",
-        citation: "Fagan v Metropolitan Police Commissioner (1969)"
-      }
-    ]
-  },
-  {
-    topic: "Constitutional Law",
-    entries: [
-      {
-        maxim: "Constitutional supremacy",
-        en: "The Constitution is the supreme law",
-        text: "Any law or custom inconsistent with the Constitution is void to the extent of the inconsistency.",
-        citation: "Constitution of the Republic of Uganda, 1995, Art. 2"
-      },
-      {
-        maxim: "Separation of powers",
-        en: "Government power is divided and checked",
-        text: "Legislative, executive, and judicial power are vested in distinct organs so that no single branch of government may dominate the others."
-      },
-      {
-        maxim: "Rule of law",
-        en: "Government is bound by law, not discretion",
-        text: "All persons, institutions, and government itself are accountable to laws that are publicly promulgated, equally enforced, and independently adjudicated."
-      },
-      {
-        maxim: "Ultra vires",
-        en: "Beyond one's powers",
-        text: "An act done by a public authority outside the powers conferred on it by law is invalid and may be struck down by the courts.",
-        citation: "Attorney-General v Fulham Corporation (1921)"
-      },
-      {
-        maxim: "Audi alteram partem",
-        en: "Hear the other side",
-        text: "No person should be condemned, punished, or deprived of a right without first being given a fair opportunity to be heard.",
-        citation: "Ridge v Baldwin (1964)"
-      }
-    ]
-  },
-  {
-    topic: "Law of Evidence",
-    entries: [
-      {
-        maxim: "He who alleges must prove",
-        en: "Burden lies on the party asserting a fact",
-        text: "The party who asserts the affirmative of an issue generally bears the burden of proving it.",
-        citation: "Evidence Act, s. 101 (analogous provisions)"
-      },
-      {
-        maxim: "Best evidence rule",
-        en: "Primary evidence is preferred",
-        text: "A document must ordinarily be proved by primary (original) evidence rather than secondary evidence, save in recognised exceptions."
-      },
-      {
-        maxim: "Res gestae",
-        en: "Things done",
-        text: "Statements or acts so closely connected in time and circumstance to the event in issue that they form part of the same transaction may be admitted despite the hearsay rule.",
-        citation: "R v Andrews (1987)"
-      },
-      {
-        maxim: "Corroboration in sexual offences",
-        en: "Caution before conviction on uncorroborated testimony",
-        text: "Courts traditionally warn themselves of the danger of convicting on the uncorroborated evidence of a complainant in sexual offence cases, though this is now a matter of practice rather than strict law in many jurisdictions."
-      },
-      {
-        maxim: "Presumption of regularity",
-        en: "Official acts are presumed properly done",
-        text: "Judicial and official acts are presumed to have been done correctly and in accordance with the law unless proven otherwise."
-      }
-    ]
-  },
-  {
-    topic: "Civil Procedure",
-    entries: [
-      {
-        maxim: "Res judicata",
-        en: "A matter already judged",
-        text: "A matter that has been finally decided by a competent court between the same parties cannot be raised again in fresh litigation.",
-        citation: "Civil Procedure Act, s. 7"
-      },
-      {
-        maxim: "Audi alteram partem in civil suits",
-        en: "Both sides must be heard",
-        text: "No judgment may be given against a party who has not been given a fair opportunity to present their case."
-      },
-      {
-        maxim: "He who comes to equity must come with clean hands",
-        en: "Equitable relief requires good conduct",
-        text: "A party seeking an equitable remedy must not themselves be guilty of unfair or improper conduct in relation to the matter."
-      },
-      {
-        maxim: "Locus standi",
-        en: "Standing to sue",
-        text: "A person must have a sufficient legal interest in a matter before the courts will entertain their claim."
-      }
-    ]
-  },
-  {
-    topic: "Criminal Procedure",
-    entries: [
-      {
-        maxim: "Nemo debet bis vexari",
-        en: "No one should be troubled twice",
-        text: "A person acquitted or convicted of an offence should not be tried again for substantially the same offence (autrefois acquit/convict).",
-        citation: "Constitution of Uganda, Art. 28(9)"
-      },
-      {
-        maxim: "Right to legal representation",
-        en: "Fair hearing includes the right to counsel",
-        text: "An accused person facing a capital or serious charge is entitled to legal representation, at state expense where they cannot afford it."
-      },
-      {
-        maxim: "Bail is a right, not a favour",
-        en: "Presumption in favour of liberty pending trial",
-        text: "An accused person is presumptively entitled to bail pending trial, subject to conditions safeguarding the interests of justice."
-      },
-      {
-        maxim: "Speedy trial",
-        en: "Justice delayed is justice denied",
-        text: "An accused is entitled to be tried within a reasonable time, failing which continued detention may itself become unlawful."
-      }
-    ]
-  },
-  {
-    topic: "Land Law",
-    entries: [
-      {
-        maxim: "Nemo dat quod non habet",
-        en: "No one gives what they do not have",
-        text: "A person cannot transfer a better title to property than they themselves possess.",
-        citation: "Registration of Titles Act (Uganda)"
-      },
-      {
-        maxim: "Bona fide purchaser for value without notice",
-        en: "Innocent buyers are protected",
-        text: "A person who purchases legal title for value, honestly and without notice of a competing interest, takes free of that unregistered interest."
-      },
-      {
-        maxim: "Doctrine of notice",
-        en: "Actual, constructive, or imputed knowledge binds",
-        text: "A purchaser who has actual, constructive, or imputed notice of a prior equitable interest takes the land subject to it."
-      },
-      {
-        maxim: "Indefeasibility of title",
-        en: "Registration cures defects",
-        text: "Under a Torrens-style registration system, a registered proprietor's title is generally protected against unregistered claims, save recognised exceptions such as fraud.",
-        citation: "Kampala Bottlers Ltd v Damanico (U) Ltd (1997)"
-      },
-      {
-        maxim: "2456789sfghjklxcvbnm,",
-        en: "asfghjkxcvbnsfgasfg",
-        text: "2s",
-        citation: "ffffffgggghh,hhh"
-      }
-    ]
-  },
-  {
-    topic: "Equity & Trusts",
-    entries: [
-      {
-        maxim: "Equity follows the law",
-        en: "Equity supplements, not overrides, the law",
-        text: "Equitable rules operate alongside common law rules and do not contradict them where the law is clear."
-      },
-      {
-        maxim: "Equity will not suffer a wrong without a remedy",
-        en: "Every wrong deserves a remedy",
-        text: "Where the common law provides no adequate remedy, equity will intervene to prevent injustice."
-      },
-      {
-        maxim: "Delay defeats equity",
-        en: "Equitable relief requires promptness",
-        text: "A party who unreasonably delays in asserting an equitable right may be barred from relief by the doctrine of laches."
-      },
-      {
-        maxim: "Equity looks to intent, not form",
-        en: "Substance over form",
-        text: "Equity examines what the parties actually intended, rather than being bound strictly by the form of a transaction."
-      }
-    ]
-  },
-  {
-    topic: "Company Law",
-    entries: [
-      {
-        maxim: "Separate legal personality",
-        en: "A company is distinct from its members",
-        text: "Upon incorporation, a company becomes a legal person separate from its shareholders and directors, capable of owning property and suing or being sued in its own name.",
-        citation: "Salomon v Salomon & Co Ltd (1897)"
-      },
-      {
-        maxim: "Corporate veil",
-        en: "Members are shielded from company liabilities",
-        text: "Shareholders are generally not personally liable for the debts and obligations of the company beyond their investment, save where the veil is lifted for fraud or improper conduct."
-      },
-      {
-        maxim: "Ultra vires (corporate)",
-        en: "Beyond the company's objects",
-        text: "An act by a company outside the objects stated in its constitutive documents was traditionally void, though modern company statutes have significantly narrowed this doctrine."
-      },
-      {
-        maxim: "Majority rule / proper plaintiff rule",
-        en: "The company is the proper claimant for wrongs against it",
-        text: "Where a wrong is done to a company, the company itself — not an individual shareholder — is generally the proper party to bring a claim.",
-        citation: "Foss v Harbottle (1843)"
-      }
-    ]
-  },
-  {
-    topic: "Family Law",
-    entries: [
-      {
-        maxim: "Best interests of the child",
-        en: "The child's welfare is paramount",
-        text: "In any matter concerning a child, the child's best interests are the primary consideration guiding the court's decision.",
-        citation: "Children Act (Uganda), s. 3"
-      },
-      {
-        maxim: "Presumption of marriage",
-        en: "Long cohabitation raises a presumption",
-        text: "Where a man and woman have cohabited for a long period and held themselves out as married, the law presumes a valid marriage in the absence of evidence to the contrary."
-      },
-      {
-        maxim: "Equality of spouses",
-        en: "Marital property is shared on just principles",
-        text: "On dissolution of marriage, matrimonial property is generally divided having regard to each spouse's contribution, direct or indirect, rather than title alone."
-      }
-    ]
-  },
-  {
-    topic: "Human Rights Law",
-    entries: [
-      {
-        maxim: "Universality of rights",
-        en: "Rights belong to all persons equally",
-        text: "Fundamental human rights are inherent in every person by virtue of their humanity, and are not privileges granted by the state."
-      },
-      {
-        maxim: "Non-derogable rights",
-        en: "Some rights admit no exception",
-        text: "Certain rights — such as the right to life and freedom from torture — cannot be suspended even during a state of emergency.",
-        citation: "Constitution of Uganda, Art. 44"
-      },
-      {
-        maxim: "Proportionality",
-        en: "Limitations must go no further than necessary",
-        text: "Any limitation on a fundamental right must be reasonable, justifiable in a free and democratic society, and no more restrictive than necessary to achieve its legitimate aim."
-      }
-    ]
-  },
-  {
-    topic: "Additional Principles",
-    entries: []
-  }
-];
+    <!-- ===== MAIN ===== -->
+    <main id="mainContent"></main>
 
-/* ============================================================
-   RENDER LOGIC (Search only, no topic chips)
-   ============================================================ */
-const mainContent = document.getElementById('mainContent');
-const searchInput = document.getElementById('searchInput');
-const countBadge = document.getElementById('countBadge');
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        BUILT FOR LDC STUDENTS, DESIGNED FOR PRIDE.
+    </footer>
 
-function totalCount(){
-  return principlesData.reduce((sum, g) => sum + g.entries.length, 0);
-}
+    <!-- ===== BIO MODAL WITH LARGE PICTURE ===== -->
+    <div class="modal-overlay" id="bioModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <!-- Large picture display -->
+            <div class="modal-avatar">
+                <img src="https://i.postimg.cc/9z65vCdX/Whats-App-Image-2026-07-08-at-19-08-12.jpg"
+                alt="Arthur — Lawyer" />
+            </div>
+            <h3>Arthur</h3>
+            <div class="modal-title">Lawyer</div>
+            <p>
+                Hello — I'm Arthur. I believe law is not just a profession, but a
+                tool for building a fairer society. I'm driven by a deep commitment
+                to justice, legal clarity, and the empowerment of those I serve.
+                <span class="quote-line">“In law, as in life, precision is kindness.”</span>
+            </p>
+        </div>
+    </div>
 
-function matchesSearch(entry, query){
-  if(!query) return true;
-  const haystack = `${entry.maxim} ${entry.en} ${entry.text} ${entry.citation || ''}`.toLowerCase();
-  return haystack.includes(query);
-}
+    <script>
+        /* ============================================================
+           PRINCIPLES DATA
+           ============================================================ */
+        const principlesData = [{
+            topic: "Contract Law",
+            entries: [{
+                maxim: "Consensus ad idem",
+                en: "Meeting of the minds",
+                text: "A binding contract requires the parties to be in genuine agreement on the same terms, in the same sense, at the same time.",
+                citation: "Raffles v Wichelhaus (1864)"
+            }, {
+                maxim: "Ex nudo pacto non oritur actio",
+                en: "No action arises from a bare promise",
+                text: "A promise unsupported by consideration is not enforceable as a contract.",
+                citation: "Currie v Misa (1875)"
+            }, {
+                maxim: "Privity of contract",
+                en: "Only parties to a contract can sue on it",
+                text: "A person who is not a party to a contract cannot enforce its terms, even if it was made for their benefit — subject to modern statutory exceptions.",
+                citation: "Tweddle v Atkinson (1861)"
+            }, {
+                maxim: "Caveat emptor",
+                en: "Let the buyer beware",
+                text: "In the absence of fraud, misrepresentation, or an express term, a buyer takes on the risk of quality or condition of what they purchase.",
+                citation: "Ward v Hobbs (1878)"
+            }, {
+                maxim: "Freedom to contract",
+                en: "Parties choose their own bargain",
+                text: "Courts will not rewrite a freely negotiated bargain merely because it later proves unfavourable to one side.",
+                citation: "Printing and Numerical Registering Co v Sampson (1875)"
+            }]
+        }, {
+            topic: "Law of Tort",
+            entries: [{
+                maxim: "Ubi jus ibi remedium",
+                en: "Where there is a right, there is a remedy",
+                text: "Every legal right carries with it a corresponding remedy when that right is violated.",
+                citation: "Ashby v White (1703)"
+            }, {
+                maxim: "Neighbour principle",
+                en: "Duty of care to those closely affected",
+                text: "A person must take reasonable care to avoid acts or omissions which they can reasonably foresee would injure their 'neighbour' — anyone closely and directly affected by their conduct.",
+                citation: "Donoghue v Stevenson (1932)"
+            }, {
+                maxim: "Res ipsa loquitur",
+                en: "The thing speaks for itself",
+                text: "Where an accident is of a kind that ordinarily does not happen without negligence, and the thing causing it was under the defendant's control, negligence may be inferred without direct proof.",
+                citation: "Scott v London & St Katherine Docks Co (1865)"
+            }, {
+                maxim: "Volenti non fit injuria",
+                en: "No injury is done to one who consents",
+                text: "A person who knowingly and voluntarily assumes a risk cannot later sue for harm arising from that risk.",
+                citation: "Smith v Baker & Sons (1891)"
+            }, {
+                maxim: "Novus actus interveniens",
+                en: "A new intervening act",
+                text: "An independent event occurring after the defendant's wrongful act may break the chain of causation and relieve them of liability for later harm.",
+                citation: "The Oropesa (1943)"
+            }]
+        }, {
+            topic: "Criminal Law",
+            entries: [{
+                maxim: "Actus non facit reum nisi mens sit rea",
+                en: "An act does not make one guilty unless the mind is also guilty",
+                text: "Criminal liability generally requires both a guilty act (actus reus) and a guilty mind (mens rea) occurring together.",
+                citation: "Fowler v Padget (1798)"
+            }, {
+                maxim: "Presumption of innocence",
+                en: "Innocent until proven guilty",
+                text: "An accused person is presumed innocent until the prosecution proves guilt beyond reasonable doubt.",
+                citation: "Woolmington v DPP (1935)"
+            }, {
+                maxim: "Nulla poena sine lege",
+                en: "No penalty without a law",
+                text: "A person cannot be punished for an act that was not a crime under the law at the time it was committed.",
+                citation: "Constitutional prohibition on retrospective criminal law"
+            }, {
+                maxim: "Actus reus must be voluntary",
+                en: "Involuntary acts do not attract liability",
+                text: "An act done in a state of automatism, or otherwise beyond the accused's control, generally cannot found criminal responsibility.",
+                citation: "Bratty v Attorney-General for Northern Ireland (1963)"
+            }, {
+                maxim: "Contemporaneity rule",
+                en: "Act and intent must coincide",
+                text: "The guilty act and guilty mind must generally exist at the same point in time for liability to attach, though courts sometimes treat a continuing act as satisfying this.",
+                citation: "Fagan v Metropolitan Police Commissioner (1969)"
+            }]
+        }, {
+            topic: "Constitutional Law",
+            entries: [{
+                maxim: "Constitutional supremacy",
+                en: "The Constitution is the supreme law",
+                text: "Any law or custom inconsistent with the Constitution is void to the extent of the inconsistency.",
+                citation: "Constitution of the Republic of Uganda, 1995, Art. 2"
+            }, {
+                maxim: "Separation of powers",
+                en: "Government power is divided and checked",
+                text: "Legislative, executive, and judicial power are vested in distinct organs so that no single branch of government may dominate the others."
+            }, {
+                maxim: "Rule of law",
+                en: "Government is bound by law, not discretion",
+                text: "All persons, institutions, and government itself are accountable to laws that are publicly promulgated, equally enforced, and independently adjudicated."
+            }, {
+                maxim: "Ultra vires",
+                en: "Beyond one's powers",
+                text: "An act done by a public authority outside the powers conferred on it by law is invalid and may be struck down by the courts.",
+                citation: "Attorney-General v Fulham Corporation (1921)"
+            }, {
+                maxim: "Audi alteram partem",
+                en: "Hear the other side",
+                text: "No person should be condemned, punished, or deprived of a right without first being given a fair opportunity to be heard.",
+                citation: "Ridge v Baldwin (1964)"
+            }]
+        }, {
+            topic: "Law of Evidence",
+            entries: [{
+                maxim: "He who alleges must prove",
+                en: "Burden lies on the party asserting a fact",
+                text: "The party who asserts the affirmative of an issue generally bears the burden of proving it.",
+                citation: "Evidence Act, s. 101 (analogous provisions)"
+            }, {
+                maxim: "Best evidence rule",
+                en: "Primary evidence is preferred",
+                text: "A document must ordinarily be proved by primary (original) evidence rather than secondary evidence, save in recognised exceptions."
+            }, {
+                maxim: "Res gestae",
+                en: "Things done",
+                text: "Statements or acts so closely connected in time and circumstance to the event in issue that they form part of the same transaction may be admitted despite the hearsay rule.",
+                citation: "R v Andrews (1987)"
+            }, {
+                maxim: "Corroboration in sexual offences",
+                en: "Caution before conviction on uncorroborated testimony",
+                text: "Courts traditionally warn themselves of the danger of convicting on the uncorroborated evidence of a complainant in sexual offence cases, though this is now a matter of practice rather than strict law in many jurisdictions."
+            }, {
+                maxim: "Presumption of regularity",
+                en: "Official acts are presumed properly done",
+                text: "Judicial and official acts are presumed to have been done correctly and in accordance with the law unless proven otherwise."
+            }]
+        }, {
+            topic: "Civil Procedure",
+            entries: [{
+                maxim: "Res judicata",
+                en: "A matter already judged",
+                text: "A matter that has been finally decided by a competent court between the same parties cannot be raised again in fresh litigation.",
+                citation: "Civil Procedure Act, s. 7"
+            }, {
+                maxim: "Audi alteram partem in civil suits",
+                en: "Both sides must be heard",
+                text: "No judgment may be given against a party who has not been given a fair opportunity to present their case."
+            }, {
+                maxim: "He who comes to equity must come with clean hands",
+                en: "Equitable relief requires good conduct",
+                text: "A party seeking an equitable remedy must not themselves be guilty of unfair or improper conduct in relation to the matter."
+            }, {
+                maxim: "Locus standi",
+                en: "Standing to sue",
+                text: "A person must have a sufficient legal interest in a matter before the courts will entertain their claim."
+            }]
+        }, {
+            topic: "Criminal Procedure",
+            entries: [{
+                maxim: "Nemo debet bis vexari",
+                en: "No one should be troubled twice",
+                text: "A person acquitted or convicted of an offence should not be tried again for substantially the same offence (autrefois acquit/convict).",
+                citation: "Constitution of Uganda, Art. 28(9)"
+            }, {
+                maxim: "Right to legal representation",
+                en: "Fair hearing includes the right to counsel",
+                text: "An accused person facing a capital or serious charge is entitled to legal representation, at state expense where they cannot afford it."
+            }, {
+                maxim: "Bail is a right, not a favour",
+                en: "Presumption in favour of liberty pending trial",
+                text: "An accused person is presumptively entitled to bail pending trial, subject to conditions safeguarding the interests of justice."
+            }, {
+                maxim: "Speedy trial",
+                en: "Justice delayed is justice denied",
+                text: "An accused is entitled to be tried within a reasonable time, failing which continued detention may itself become unlawful."
+            }]
+        }, {
+            topic: "Land Law",
+            entries: [{
+                maxim: "Nemo dat quod non habet",
+                en: "No one gives what they do not have",
+                text: "A person cannot transfer a better title to property than they themselves possess.",
+                citation: "Registration of Titles Act (Uganda)"
+            }, {
+                maxim: "Bona fide purchaser for value without notice",
+                en: "Innocent buyers are protected",
+                text: "A person who purchases legal title for value, honestly and without notice of a competing interest, takes free of that unregistered interest."
+            }, {
+                maxim: "Doctrine of notice",
+                en: "Actual, constructive, or imputed knowledge binds",
+                text: "A purchaser who has actual, constructive, or imputed notice of a prior equitable interest takes the land subject to it."
+            }, {
+                maxim: "Indefeasibility of title",
+                en: "Registration cures defects",
+                text: "Under a Torrens-style registration system, a registered proprietor's title is generally protected against unregistered claims, save recognised exceptions such as fraud.",
+                citation: "Kampala Bottlers Ltd v Damanico (U) Ltd (1997)"
+            }]
+        }, {
+            topic: "Equity & Trusts",
+            entries: [{
+                maxim: "Equity follows the law",
+                en: "Equity supplements, not overrides, the law",
+                text: "Equitable rules operate alongside common law rules and do not contradict them where the law is clear."
+            }, {
+                maxim: "Equity will not suffer a wrong without a remedy",
+                en: "Every wrong deserves a remedy",
+                text: "Where the common law provides no adequate remedy, equity will intervene to prevent injustice."
+            }, {
+                maxim: "Delay defeats equity",
+                en: "Equitable relief requires promptness",
+                text: "A party who unreasonably delays in asserting an equitable right may be barred from relief by the doctrine of laches."
+            }, {
+                maxim: "Equity looks to intent, not form",
+                en: "Substance over form",
+                text: "Equity examines what the parties actually intended, rather than being bound strictly by the form of a transaction."
+            }]
+        }, {
+            topic: "Company Law",
+            entries: [{
+                maxim: "Separate legal personality",
+                en: "A company is distinct from its members",
+                text: "Upon incorporation, a company becomes a legal person separate from its shareholders and directors, capable of owning property and suing or being sued in its own name.",
+                citation: "Salomon v Salomon & Co Ltd (1897)"
+            }, {
+                maxim: "Corporate veil",
+                en: "Members are shielded from company liabilities",
+                text: "Shareholders are generally not personally liable for the debts and obligations of the company beyond their investment, save where the veil is lifted for fraud or improper conduct."
+            }, {
+                maxim: "Ultra vires (corporate)",
+                en: "Beyond the company's objects",
+                text: "An act by a company outside the objects stated in its constitutive documents was traditionally void, though modern company statutes have significantly narrowed this doctrine."
+            }, {
+                maxim: "Majority rule / proper plaintiff rule",
+                en: "The company is the proper claimant for wrongs against it",
+                text: "Where a wrong is done to a company, the company itself — not an individual shareholder — is generally the proper party to bring a claim.",
+                citation: "Foss v Harbottle (1843)"
+            }]
+        }, {
+            topic: "Family Law",
+            entries: [{
+                maxim: "Best interests of the child",
+                en: "The child's welfare is paramount",
+                text: "In any matter concerning a child, the child's best interests are the primary consideration guiding the court's decision.",
+                citation: "Children Act (Uganda), s. 3"
+            }, {
+                maxim: "Presumption of marriage",
+                en: "Long cohabitation raises a presumption",
+                text: "Where a man and woman have cohabited for a long period and held themselves out as married, the law presumes a valid marriage in the absence of evidence to the contrary."
+            }, {
+                maxim: "Equality of spouses",
+                en: "Marital property is shared on just principles",
+                text: "On dissolution of marriage, matrimonial property is generally divided having regard to each spouse's contribution, direct or indirect, rather than title alone."
+            }]
+        }, {
+            topic: "Human Rights Law",
+            entries: [{
+                maxim: "Universality of rights",
+                en: "Rights belong to all persons equally",
+                text: "Fundamental human rights are inherent in every person by virtue of their humanity, and are not privileges granted by the state."
+            }, {
+                maxim: "Non-derogable rights",
+                en: "Some rights admit no exception",
+                text: "Certain rights — such as the right to life and freedom from torture — cannot be suspended even during a state of emergency.",
+                citation: "Constitution of Uganda, Art. 44"
+            }, {
+                maxim: "Proportionality",
+                en: "Limitations must go no further than necessary",
+                text: "Any limitation on a fundamental right must be reasonable, justifiable in a free and democratic society, and no more restrictive than necessary to achieve its legitimate aim."
+            }]
+        }, {
+            topic: "Additional Principles",
+            entries: []
+        }];
 
-function render(){
-  const query = searchInput.value.trim().toLowerCase();
-  let shown = 0;
-  let html = '';
+        /* ============================================================
+           RENDER LOGIC
+           ============================================================ */
+        const mainContent = document.getElementById('mainContent');
+        const searchInput = document.getElementById('searchInput');
+        const countBadge = document.getElementById('countBadge');
 
-  principlesData.forEach(group => {
-    const filtered = group.entries.filter(e => matchesSearch(e, query));
-    if(filtered.length === 0) return;
+        function totalCount() {
+            return principlesData.reduce((sum, g) => sum + g.entries.length, 0);
+        }
 
-    shown += filtered.length;
+        function matchesSearch(entry, query) {
+            if (!query) return true;
+            const haystack = `${entry.maxim} ${entry.en} ${entry.text} ${entry.citation || ''}`.toLowerCase();
+            return haystack.includes(query);
+        }
 
-    html += `<div class="topic-group">
-      <div class="topic-heading">
-        <h2>${group.topic}</h2>
-        <span class="tally">${filtered.length} principle${filtered.length !== 1 ? 's' : ''}</span>
-      </div>
-      <div class="principle-grid">
-        ${filtered.map(e => `
-          <div class="principle-card">
-            <div class="maxim">${e.maxim}</div>
-            <div class="maxim-en">${e.en}</div>
-            <div class="explanation">${e.text}</div>
-            ${e.citation ? `<div class="citation">${e.citation}</div>` : ''}
-          </div>
-        `).join('')}
-      </div>
-    </div>`;
-  });
+        function render() {
+            const query = searchInput.value.trim().toLowerCase();
+            let shown = 0;
+            let html = '';
 
-  if(shown === 0){
-    html = `<div class="empty-state">No principles match "${searchInput.value}". Try a different word.</div>`;
-  }
+            principlesData.forEach(group => {
+                const filtered = group.entries.filter(e => matchesSearch(e, query));
+                if (filtered.length === 0) return;
 
-  mainContent.innerHTML = html;
-  countBadge.textContent = `${shown} of ${totalCount()} principles`;
-}
+                shown += filtered.length;
 
-searchInput.addEventListener('input', render);
-render();
-</script>
+                html += `
+                        <div class="topic-group">
+                            <div class="topic-heading">
+                                <h2>${group.topic}</h2>
+                                <span class="tally">${filtered.length} principle${filtered.length !== 1 ? 's' : ''}</span>
+                            </div>
+                            <div class="principle-grid">
+                                ${filtered.map(e => `
+                                    <div class="principle-card">
+                                        <div class="maxim">${e.maxim}</div>
+                                        <div class="maxim-en">${e.en}</div>
+                                        <div class="explanation">${e.text}</div>
+                                        ${e.citation ? `<div class="citation">${e.citation}</div>` : ''}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+            });
+
+            if (shown === 0) {
+                html = `<div class="empty-state">No principles match "${searchInput.value}". Try a different word.</div>`;
+            }
+
+            mainContent.innerHTML = html;
+            countBadge.textContent = `${shown} of ${totalCount()} principles`;
+        }
+
+        searchInput.addEventListener('input', render);
+        render();
+
+        /* ============================================================
+           PROFILE MODAL LOGIC (click anywhere on the card)
+           ============================================================ */
+        const profileCard = document.getElementById('profileCard');
+        const bioModal = document.getElementById('bioModal');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        function openModal() {
+            bioModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            bioModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        profileCard.addEventListener('click', openModal);
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        bioModal.addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && bioModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
