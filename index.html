@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
   :root {
-    /* Core palette from ldclionhunter.com/style.css */
     --law-navy: #112d4e;
     --law-blue: #3f72af;
     --law-gold: #caa75c;
@@ -18,7 +17,6 @@
     --law-white: #ffffff;
     --law-border: #ccc;
 
-    /* Mapped to original variable names for compatibility */
     --bg: var(--law-cream);
     --bg-panel: var(--law-beige);
     --bg-card: var(--law-white);
@@ -41,6 +39,11 @@
     padding: 0;
   }
 
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     background: var(--law-cream);
     color: var(--law-dark);
@@ -48,6 +51,8 @@
     line-height: 1.6;
     min-height: 100vh;
     position: relative;
+    padding: 0;
+    margin: 0;
   }
 
   body::before {
@@ -61,86 +66,26 @@
     z-index: 0;
   }
 
-  a {
-    color: inherit;
-  }
-
-  /* ---------- Header ---------- */
-  header {
-    position: relative;
-    z-index: 2;
-    padding: 22px 6vw 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--law-navy);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-  .brand-mark {
-    width: 34px;
-    height: 34px;
-    flex-shrink: 0;
-  }
-  .brand-text {
-    font-family: var(--font-display);
-    font-size: 19px;
-    letter-spacing: 0.04em;
-    color: var(--law-gold);
-    font-weight: 600;
-  }
-  .brand-text small {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 9px;
-    letter-spacing: 0.22em;
-    color: rgba(255,255,255,0.6);
-    font-weight: 400;
-    margin-top: 2px;
-  }
-  nav {
-    display: flex;
-    gap: 28px;
-    font-size: 13px;
-    letter-spacing: 0.03em;
-  }
-  nav a {
-    text-decoration: none;
-    color: rgba(255,255,255,0.7);
-    transition: color .2s;
-  }
-  nav a:hover {
-    color: var(--law-gold);
-  }
-  nav a.current {
-    color: var(--law-gold);
-    border-bottom: 1px solid var(--law-gold);
-  }
-
   /* ---------- Hero ---------- */
   .hero {
     position: relative;
     z-index: 2;
-    padding: 64px 6vw 40px;
+    padding: 3rem 1.5rem 2rem;
     max-width: 900px;
+    margin: 0 auto;
   }
   .hero .eyebrow {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 0.7rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--law-blue);
-    margin-bottom: 18px;
+    margin-bottom: 1rem;
     display: block;
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(38px, 6vw, 68px);
+    font-size: clamp(2.6rem, 8vw, 4.5rem);
     font-weight: 600;
     color: var(--law-navy);
     line-height: 1.02;
@@ -152,8 +97,8 @@
     font-weight: 500;
   }
   .hero p {
-    margin-top: 20px;
-    font-size: 17px;
+    margin-top: 1.2rem;
+    font-size: 1rem;
     color: var(--sage);
     max-width: 60ch;
   }
@@ -163,30 +108,34 @@
     position: sticky;
     top: 0;
     z-index: 5;
-    padding: 16px 6vw;
+    padding: 0.8rem 1.5rem;
     background: rgba(248, 244, 238, 0.94);
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--line);
     border-top: 1px solid var(--line);
   }
   .search-row {
     display: flex;
-    gap: 14px;
+    gap: 0.8rem;
     align-items: center;
     max-width: 1200px;
-    margin: 0 auto 14px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
   }
   .search-row input {
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 0;
     background: var(--bg-panel);
     border: 1px solid var(--line);
     color: var(--law-navy);
     font-family: var(--font-body);
-    font-size: 14px;
-    padding: 11px 16px;
-    border-radius: 3px;
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
     outline: none;
     transition: border-color .2s;
+    height: 48px;
   }
   .search-row input:focus {
     border-color: var(--law-gold);
@@ -196,39 +145,11 @@
   }
   .count-badge {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 0.7rem;
     color: var(--sage);
     white-space: nowrap;
-  }
-  .topic-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .chip {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.04em;
-    padding: 6px 13px;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    color: var(--sage);
-    cursor: pointer;
-    background: transparent;
-    transition: all .15s;
-    user-select: none;
-  }
-  .chip:hover {
-    border-color: var(--law-gold);
-    color: var(--law-gold);
-  }
-  .chip.active {
-    background: var(--law-gold);
-    border-color: var(--law-gold);
-    color: var(--law-navy);
-    font-weight: 600;
+    flex-shrink: 0;
+    padding-left: 0.5rem;
   }
 
   /* ---------- Main ---------- */
@@ -237,11 +158,11 @@
     z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 44px 6vw 100px;
+    padding: 2rem 1.5rem 4rem;
   }
 
   .topic-group {
-    margin-bottom: 56px;
+    margin-bottom: 3.5rem;
   }
   .topic-group.hidden {
     display: none;
@@ -250,42 +171,54 @@
   .topic-heading {
     display: flex;
     align-items: baseline;
-    gap: 14px;
-    margin-bottom: 22px;
-    padding-bottom: 12px;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
     border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
   }
   .topic-heading h2 {
     font-family: var(--font-display);
-    font-size: 24px;
+    font-size: 1.6rem;
     font-weight: 600;
     color: var(--law-navy);
+    line-height: 1.2;
   }
   .topic-heading .tally {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 0.7rem;
     color: var(--sage-dim);
+    background: var(--bg-panel);
+    padding: 0.1rem 0.6rem;
+    border-radius: 20px;
   }
 
   .principle-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
   }
 
   .principle-card {
     background: var(--bg-card);
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 22px 24px;
+    padding: 1.5rem;
     position: relative;
     transition: border-color .2s, transform .2s, box-shadow .2s;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
   }
   .principle-card:hover {
     border-color: var(--law-gold);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
+  }
+  @media (hover: none) {
+    .principle-card:hover {
+      transform: none;
+    }
   }
   .principle-card::before {
     content: "";
@@ -300,31 +233,34 @@
   .maxim {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 19px;
+    font-size: 1.2rem;
     color: var(--law-navy);
     font-weight: 500;
     line-height: 1.3;
-    margin-bottom: 6px;
+    margin-bottom: 0.25rem;
+    word-wrap: break-word;
   }
   .maxim-en {
     font-family: var(--font-mono);
-    font-size: 10.5px;
+    font-size: 0.65rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--sage);
-    margin-bottom: 14px;
+    margin-bottom: 0.8rem;
   }
   .explanation {
-    font-size: 14.5px;
+    font-size: 0.95rem;
     color: var(--sage);
-    margin-bottom: 14px;
+    margin-bottom: 1rem;
+    flex: 1;
   }
   .citation {
     font-family: var(--font-mono);
-    font-size: 11.5px;
+    font-size: 0.7rem;
     color: var(--law-gold);
-    padding-top: 10px;
+    padding-top: 0.6rem;
     border-top: 1px dashed var(--line);
+    margin-top: auto;
   }
   .citation::before {
     content: "⚖ ";
@@ -332,10 +268,10 @@
 
   .empty-state {
     text-align: center;
-    padding: 80px 20px;
+    padding: 4rem 1.5rem;
     color: var(--sage);
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 1.5rem;
     font-style: italic;
   }
 
@@ -343,61 +279,80 @@
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 30px;
+    padding: 1.5rem;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 0.7rem;
     color: rgba(255,255,255,0.6);
     background-color: var(--law-navy);
     border-top: 1px solid rgba(255,255,255,0.06);
   }
 
-  @media (max-width: 640px) {
-    header {
-      flex-direction: column;
-      gap: 14px;
-      align-items: flex-start;
+  /* ---------- Responsive Fine-Tuning ---------- */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 2rem 1.2rem 1.5rem;
     }
-    nav {
-      gap: 16px;
-      flex-wrap: wrap;
+    .controls {
+      padding: 0.6rem 1.2rem;
+    }
+    main {
+      padding: 1.5rem 1.2rem 3rem;
     }
     .principle-grid {
       grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    .topic-heading h2 {
+      font-size: 1.4rem;
+    }
+    .search-row {
+      gap: 0.5rem;
+    }
+    .count-badge {
+      font-size: 0.65rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    .hero p {
+      font-size: 0.95rem;
+    }
+    .principle-card {
+      padding: 1.2rem;
+    }
+    .maxim {
+      font-size: 1.1rem;
+    }
+    .search-row input {
+      font-size: 0.85rem;
+      padding: 0.6rem 0.8rem;
+      height: 44px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .principle-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <a class="brand" href="index.html">
-    <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="19" stroke="#caa75c" stroke-width="1.2"/>
-      <path d="M20 8c-3 3-4 6-3 10-3-1-6 0-8 3 2 0 4 1 5 3-3 1-5 3-6 6 3-1 6-1 8 1 0 3 2 5 4 6 2-1 4-3 4-6 2-2 5-2 8-1-1-3-3-5-6-6 1-2 3-3 5-3-2-3-5-4-8-3 1-4 0-7-3-10z" fill="#caa75c" opacity="0.9"/>
-    </svg>
-    <span class="brand-text">THE LION HUNTER<small>LDC · LEGAL CLARITY PORTAL</small></span>
-  </a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="laws.html">Laws</a>
-    <a href="cases.html">Cases</a>
-    <a href="principles.html" class="current">Principles</a>
-    <a href="workshops.html">Workshops</a>
-  </nav>
-</header>
-
 <section class="hero">
-  <span class="eyebrow">Territory Map · Every Subject</span>
+  <span class="eyebrow"></span>
   <h1>Principles of <em>Law</em>,<br>hunted down and mounted.</h1>
-  <p>The maxims, doctrines and rules that govern every subject on the LDC syllabus — stated plainly, tied to the case that proves them, and ready to recall the moment you're cold-called.</p>
+  <p></p>
 </section>
 
 <div class="controls">
   <div class="search-row">
-    <input type="text" id="searchInput" placeholder="Search a principle, maxim, or case… e.g. 'consideration', 'mens rea', 'audi alteram partem'">
+    <input type="text" id="searchInput" placeholder="Search a principle, maxim, or case… e.g. 'consideration', 'mens rea'">
     <span class="count-badge" id="countBadge"></span>
   </div>
-  <div class="topic-chips" id="topicChips"></div>
 </div>
 
 <main id="mainContent"></main>
@@ -409,6 +364,8 @@
 <script>
 /* ============================================================
    PRINCIPLES DATA
+   To add new principles from the admin portal, simply add new
+   entries to the "Additional Principles" topic below.
    ============================================================ */
 const principlesData = [
   {
@@ -521,36 +478,35 @@ const principlesData = [
       { maxim:"Non-derogable rights", en:"Some rights admit no exception", text:"Certain rights — such as the right to life and freedom from torture — cannot be suspended even during a state of emergency.", citation:"Constitution of Uganda, Art. 44" },
       { maxim:"Proportionality", en:"Limitations must go no further than necessary", text:"Any limitation on a fundamental right must be reasonable, justifiable in a free and democratic society, and no more restrictive than necessary to achieve its legitimate aim." }
     ]
+  },
+  {
+    /* ============================================================
+       ADMIN PORTAL ADDITIONS
+       New principles added here will automatically appear.
+       ============================================================ */
+    topic: "Additional Principles",
+    entries: [
+      // 🚀 NEW PRINCIPLES ADDED VIA ADMIN PORTAL GO HERE
+      // Example: 
+      // { 
+      //   maxim:"Lex Specialis", 
+      //   en:"Specific law prevails", 
+      //   text:"Where two laws conflict, the specific one overrides the general.", 
+      //   citation:"Constitutional Law" 
+      // }
+    ]
   }
 ];
 
 /* ============================================================
-   RENDER LOGIC
+   RENDER LOGIC (Search only, no topic chips)
    ============================================================ */
 const mainContent = document.getElementById('mainContent');
-const topicChips = document.getElementById('topicChips');
 const searchInput = document.getElementById('searchInput');
 const countBadge = document.getElementById('countBadge');
 
-let activeTopic = "All";
-
 function totalCount(){
   return principlesData.reduce((sum, g) => sum + g.entries.length, 0);
-}
-
-function buildChips(){
-  const topics = ["All", ...principlesData.map(g => g.topic)];
-  topicChips.innerHTML = topics.map(t =>
-    `<button class="chip ${t === activeTopic ? 'active' : ''}" data-topic="${t}">${t}${t !== 'All' ? '' : ` (${totalCount()})`}</button>`
-  ).join('');
-
-  topicChips.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      activeTopic = chip.dataset.topic;
-      buildChips();
-      render();
-    });
-  });
 }
 
 function matchesSearch(entry, query){
@@ -565,8 +521,6 @@ function render(){
   let html = '';
 
   principlesData.forEach(group => {
-    if(activeTopic !== "All" && group.topic !== activeTopic) return;
-
     const filtered = group.entries.filter(e => matchesSearch(e, query));
     if(filtered.length === 0) return;
 
@@ -591,7 +545,7 @@ function render(){
   });
 
   if(shown === 0){
-    html = `<div class="empty-state">No principles match "${searchInput.value}". Try a different word, or clear the topic filter.</div>`;
+    html = `<div class="empty-state">No principles match "${searchInput.value}". Try a different word.</div>`;
   }
 
   mainContent.innerHTML = html;
@@ -599,7 +553,6 @@ function render(){
 }
 
 searchInput.addEventListener('input', render);
-buildChips();
 render();
 </script>
 
